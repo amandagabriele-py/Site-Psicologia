@@ -766,122 +766,343 @@ footer .descricao-secao {
   color: rgba(251, 243, 232, 0.4);
 }
 
-/* BOTÃO FLUTUANTE WHATSAPP (COR VINHO) */
+/* BOTÃO FLUTUANTE WHATSAPP */
 .whatsapp-flutuante {
   position: fixed;
-  bottom: 20px;          /* Distância do fundo da tela */
-  right: 20px;           /* Distância da direita para NÃO cortar na tela */
-  width: 56px;           /* Tamanho padrão e confortável para toque */
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
   height: 56px;
-  background-color: #25d366; /* Cor verde do WhatsApp */
+  background-color: #83324c;
   color: #ffffff;
-  border-radius: 50%;    /* Deixa o botão perfeitamente redondo */
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  z-index: 9999;          /* Garante que ele fique por cima de todos os elementos */
+  z-index: 9999;
   text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-/* Tamanho do ícone SVG dentro do botão */
 .whatsapp-flutuante svg {
   width: 30px;
   height: 30px;
-  fill: #ffffff;         /* Cor branca do ícone do WhatsApp */
+  fill: #ffffff;
 }
 
-/* Efeito ao passar o mouse / tocar */
 .whatsapp-flutuante:hover {
+  background-color: var(--cor-vinho-escuro);
   transform: scale(1.08);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
 }
 
-/* Ajuste específico para telas menores de celular */
-@media (max-width: 480px) {
+/* Evita que conteúdos flex/grid ultrapassem o espaço disponível */
+img,
+svg {
+  max-width: 100%;
+}
+
+/* =====================================================
+   RESPONSIVIDADE — TABLET
+   ===================================================== */
+@media (max-width: 900px) {
+  .navegacao-wrapper {
+    padding: 14px 24px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .logotipo {
+    align-items: center;
+    text-align: center;
+  }
+
+  nav.links-navegacao {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+  }
+
+  .secao-principal {
+    padding: 64px 24px 72px;
+  }
+
+  .secao-principal-conteudo {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .secao-principal-conteudo > div:first-child {
+    text-align: center;
+  }
+
+  .secao-principal h1,
+  .secao-principal-subtitulo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .grade-destaque {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .secao {
+    padding: 72px 24px;
+  }
+
+  .grade-tres-colunas {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .colunas-abordagem {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .coluna-abordagem {
+    text-align: center;
+  }
+
+  .coluna-abordagem .icone-situacao {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .grade-etapas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 20px;
+  }
+
+  .grade-etapas::before {
+    display: none;
+  }
+
+  .sobre-mim {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .sobre-mim-foto {
+    max-width: 350px;
+    height: 440px;
+  }
+
+  .sobre-mim-texto {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .rodape-conteudo {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .formulario-contato {
+    max-width: 100%;
+  }
+}
+
+/* =====================================================
+   RESPONSIVIDADE — CELULAR
+   ===================================================== */
+@media (max-width: 600px) {
+  .navegacao-wrapper {
+    padding: 12px 16px;
+  }
+
+  .logotipo-nome {
+    font-size: 1.35rem;
+  }
+
+  .logotipo-registro {
+    font-size: 0.55rem;
+  }
+
+  nav.links-navegacao {
+    gap: 6px 14px;
+    font-size: 0.78rem;
+  }
+
+  .secao-principal {
+    padding: 52px 18px 58px;
+  }
+
+  .secao-principal h1 {
+    font-size: clamp(2.7rem, 14vw, 4rem);
+  }
+
+  .secao-principal-subtitulo {
+    font-size: 0.94rem;
+  }
+
+  .secao-principal::before {
+    width: 330px;
+    height: 330px;
+    right: -180px;
+  }
+
+  .cartao-destaque {
+    padding: 24px 18px;
+  }
+
+  .grade-destaque {
+    gap: 22px 12px;
+  }
+
+  .item-destaque p {
+    font-size: 0.72rem;
+  }
+
+  .botao {
+    width: 100%;
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .secao {
+    padding: 58px 18px;
+  }
+
+  .cabecalho-secao {
+    margin-bottom: 34px;
+  }
+
+  .cabecalho-secao h2 {
+    font-size: 2rem;
+    line-height: 1.15;
+  }
+
+  .cartao-situacao {
+    padding: 26px 20px;
+  }
+
+  .caixa-abordagem {
+    padding: 38px 20px;
+    border-radius: 18px;
+    margin-bottom: 38px;
+  }
+
+  .caixa-abordagem h2 {
+    line-height: 1.2;
+  }
+
+  .carrossel-container {
+    margin-bottom: 60px;
+  }
+
+  .carrossel-trilho {
+    height: 320px;
+  }
+
+  .carrossel-cartao {
+    padding: 28px 22px;
+  }
+
+  .carrossel-cartao h3 {
+    font-size: 1.3rem;
+  }
+
+  .carrossel-cartao p {
+    font-size: 0.9rem;
+  }
+
+  .carrossel-controles {
+    gap: 12px;
+  }
+
+  .carrossel-seta {
+    width: 38px;
+    height: 38px;
+  }
+
+  .painel-etapas {
+    padding: 36px 18px;
+  }
+
+  .grade-etapas {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .etapa {
+    padding: 0;
+  }
+
+  .sobre-mim {
+    gap: 30px;
+  }
+
+  .sobre-mim-foto {
+    max-width: 300px;
+    height: 380px;
+  }
+
+  .sobre-mim-texto h2 {
+    font-size: 2rem;
+  }
+
+  .sobre-mim-texto p {
+    font-size: 0.92rem;
+  }
+
+  footer {
+    padding: 54px 18px 28px;
+  }
+
+  .rodape-conteudo {
+    gap: 42px;
+  }
+
+  .linha-contato-rodape {
+    align-items: flex-start;
+  }
+
+  .linha-contato-rodape a {
+    overflow-wrap: anywhere;
+  }
+
+  .rodape-inferior {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
   .whatsapp-flutuante {
-    bottom: 16px;
-    right: 16px;         /* Mantém margem segura em telas pequenas */
     width: 50px;
     height: 50px;
+    right: 14px;
+    bottom: 14px;
   }
-  
+
   .whatsapp-flutuante svg {
     width: 26px;
     height: 26px;
   }
 }
 
-/* Efeito ao passar o mouse: fica em um vinho levemente mais escuro */
-.whatsapp-flutuante:hover {
-  background-color: var(--cor-vinho-escuro);
-  transform: scale(1.1);
-}
-
-/* RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS */
-/* Previne estourar a tela lateralmente em qualquer dispositivo */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-html, body {
-  overflow-x: hidden !important;
-  width: 100% !important;
-  margin: 0;
-  padding: 0;
-}
-
-/* Força o botão do WhatsApp a ter a cor vinho original e ficar dentro da tela */
-.whatsapp-flutuante, 
-a[href*="wa.me"] {
-  background-color: #83324c !important; /* Cor vinho da sua marca */
-  position: fixed !important;
-  bottom: 20px !important;
-  right: 20px !important;
-  z-index: 9999 !important;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-}
-
-.whatsapp-flutuante svg {
-  fill: #ffffff !important;
-}
-
-/* AJUSTES DE PROPORÇÃO PARA CELULARES E TABLETS (até 992px) */
-@media (max-width: 992px) {
-
-  /* Cabeçalho e Navegação */
-  header, nav, .header-conteudo {
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center;
-    width: 100% !important;
-    padding: 15px 10px !important;
+/* CELULARES PEQUENOS */
+@media (max-width: 380px) {
+  nav.links-navegacao {
+    font-size: 0.72rem;
+    gap: 6px 10px;
   }
 
-  nav ul, .menu {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 12px !important;
-    padding: 10px 0 0 0 !important;
+  .secao-principal,
+  .secao {
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
-  /* Seção Principal (Hero / Banner Vinho) */
-  .hero, .banner, section, .container {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+  .grade-destaque {
+    grid-template-columns: 1fr;
   }
 
-  /* Organização dos Cards / Destaques em coluna única */
-  [class*="grid"], [class*="cards"], [class*="diferenciais"] {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    gap: 16px !important;
+  .carrossel-trilho {
+    height: 350px;
   }
 }
+
