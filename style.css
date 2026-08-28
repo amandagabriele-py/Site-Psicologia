@@ -820,60 +820,29 @@ footer .descricao-secao {
 }
 
 /* RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS */
+.whatsapp-flutuante {
+  background-color: #83324c !important; /* Cor vinho original do seu site */
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 9999 !important;
+}
+
+.whatsapp-flutuante svg {
+  fill: #ffffff !important;
+}
+
+/* AJUSTES PARA NÃO VAZAR A TELA NO CELULAR */
 html, body {
   overflow-x: hidden !important;
-  width: 100% !important;
-  margin: 0;
-  padding: 0;
+  max-width: 100vw;
 }
 
-/* Garante que imagens e containers não ultrapassem a largura do celular */
-img, container, section, header, footer {
-  max-width: 100% !important;
-  box-sizing: border-box !important;
-}
-
-/* Regras para telas de celular (até 768px) */
 @media (max-width: 768px) {
-
-  /* Ajusta o cabeçalho e alinha o menu em linhas */
-  header, nav, .header-conteudo {
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center;
-    width: 100% !important;
-    padding: 15px 10px !important;
-  }
-
-  nav ul, .menu {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 10px !important;
-    padding: 10px 0 0 0 !important;
-  }
-
-  /* Impede que banners e seções tenham largura maior que a tela */
-  section, .hero, .principal, .banner {
-    width: 100% !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-
-  /* Reorganiza grids/colunas para ficarem uma embaixo da outra */
-  [class*="grid"], [class*="cards"], [class*="container"] {
-    grid-template-columns: 1fr !important;
-    width: 100% !important;
-  }
-
-  /* Mantém o botão do WhatsApp fixo e dentro da tela */
-  .whatsapp-flutuante, 
-  a[href*="wa.me"] {
-    position: fixed !important;
-    bottom: 20px !important;
-    right: 20px !important;
-    width: 52px !important;
-    height: 52px !important;
-    z-index: 9999 !important;
+  header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
   }
 }
