@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://amandagabriele-py.github.io/Site-Psicologia/sitemap.xml
+Sitemap: https://thauanecruzpsi.netlify.app/sitemap.xml
